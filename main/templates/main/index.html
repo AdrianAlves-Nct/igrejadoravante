@@ -1,0 +1,266 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load widget_tweaks %}  
+{% block title %}Página Principal{% endblock %}
+
+{% block content %}
+<header class="bg-primary text-white py-5 mb-0 position-relative overflow-hidden">
+    <!-- Imagem de Fundo -->
+    <div class="position-absolute top-0 start-0 w-100 h-100">
+        <img src="{% static '\main\img\maos.jpg' %}" 
+             alt="Igreja Doravante" 
+             class="w-100 h-100 object-fit-cover"
+             style="opacity: 0.3;"> 
+    </div>
+    
+    
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.4;"></div>
+    
+    
+    <div class="container position-relative z-1">
+        <div class="row align-items-center min-vh-50"> 
+            <div class="col-lg-8 col-md-10 py-4">
+                <h1 class="display-4 fw-bold">IGREJA ASSEMBLÉIA DORAVANTE</h1>
+                <p class="lead mt-3 fs-5"><b>Romanos 8:28:</b> "E sabemos que todas as coisas cooperam para o bem daqueles que amam a Deus, daqueles que são chamados segundo o seu propósito!</p>
+                <a href="#contato" class="btn btn-accent btn-lg mt-3 fs-6">
+                    Entre em Contato
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="sobre" class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="mb-4 display-5">Nossa História e Missão</h2>
+                <h3>A Semente no Deserto: A História da Igreja Doravante</h3>
+                <p class="lead text-muted"> O Pastor Cosme lembra com clareza do peso que sentia. Ele havia passado semanas contruindo a igreja em bairro simples, afastado do centro da cidade, onde as casas eram humildes, mas os sorrisos eram genuínos. Ele via o desamparo, a preocupação nos rostos dos pais de família e uma certa desesperança e sintia que poderia mudar isso.</p>
+                <p class="lead text-muted">
+                  Foi em várias idas e vindas participando das contruções do templo que ele sentiu a necessidade de iniciar uma visão diferente, de hoje em diante surgia: <b>"Doravante"</b>.
+                </p>
+                <p class="lead text-muted">
+                  Naquele instante, Jose Cosme entendeu. A missão não era construir um grande templo de paredes imponentes, mas plantar uma semente de esperança. De hoje em diante, a história poderia ser diferente. Não pela ausência de problemas, mas pela presença de Cristo no meio delas.
+                </p>
+                <p class="lead text-muted">
+                  Assim, em uma sala emprestada, com meia dúzia de irmãos de fé e um sonho desproporcional ao seu tamanho, nascia a Igreja Doravante.
+                </p>
+                <p class="lead text-muted">
+                  O primeiro "templo" foi a própria comunidade. O Pastor Cosme e aqueles poucos fundadores entenderam que o evangelho não deveria ser esperado dentro de quatro paredes, mas levado para onde a vida acontecia – e, muitas vezes, a vida acontecia em meio às lutas.
+                </p>
+                <p class="lead text-muted">
+                  <b>Eles começaram a escrever a história com os pés, não apenas com palavras.</b>
+                </p>
+                <p class="lead text-muted">
+                  <b>As visitas</b>  se tornaram a espinha dorsal da igreja. Não eram apenas visitas pastorais formais; eram momentos de compartilhar o pão, de chorar com os que choravam e de orar com os enfermos nos leitos dos hospitais ou em suas casas simples. Eles levavam uma palavra de fé, um abraço apertado e, quando possível, uma cesta básica que era mais do que alimento: era um gesto tangível do amor de Deus.
+                </p>
+                <p class="lead text-muted">
+                  <b>Os eventos</b> brotaram naturalmente das necessidades. Um chá de irmãs para acolher as mulheres sobrecarregadas. Um bazar beneficente para comprar remédios para um vizinho. Um culto ao ar livre na praça, onde hinos de esperança ecoavam entre as casas, convidando todos a fazerem parte daquela família.
+                </p>
+                <p class="lead text-muted">
+                  A Igreja Doravante nunca se tornou uma multidão. Suas cadeiras continuavam sendo as mesmas, um pouco gastas pelo uso. Mas o que faltava em números, sobrava em amor. Cada pessoa que chegava era recebida pelo nome. Cada necessidade compartilhada se tornava uma oração coletiva. Eles não eram uma instituição religiosa distante; eram irmãos, vizinhos, amigos que haviam decidido caminhar juntos, sob a graça de Deus.
+                </p>
+                <p class="lead text-muted">
+                   O lema não oficial, herdado daquele pensamento do Pastor Cosme, era: "O ontem já passou. Doravante, há esperança. Doravante, há uma comunidade que se importa. Doravante, há um Deus que nos ama e nos chama para servir."
+                </p>
+                <p class="lead text-muted">
+                  Hoje, a Igreja Doravante pode não ser grande coisa aos olhos do mundo. Mas sua história é contada nas lágrimas enxugadas, nos sorrisos restaurados e na fé reacendida no coração daqueles que se sentiam invisíveis. Ela é um farol discreto, porém constante, que lembra a todos que, por mais difícil que tenha sido o caminho, a partir de hoje, sempre há uma nova página para ser escrita na graça de Cristo.
+                </p>
+                <p class="lead text-muted">
+                  Esta é a nossa história. Uma história que começou com um homem e uma palavra, e que continua a ser escrita, todos os dias, por cada mão que se estende, por cada oração que sobe e por cada vida que encontra, na Igreja Doravante, a esperança de um "de hoje em diante".
+                </p>
+                
+                <p>Nossa missão é amar a Deus e ao próximo, servindo a todos com esperança e ações práticas que transformam vidas.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="agenda" class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <h3 class="mb-4">Cultos Semanais</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span class="fw-bold">Domingo — 19h:</span> Culto de Adoração
+                        <span class="badge bg-primary rounded-pill">Presb. Joel</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span class="fw-bold">Terça — 19h:</span> Culto de Oração
+                        <span class="badge bg-primary rounded-pill">Miss. Tânia</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span class="fw-bold">Quinta — 19h:</span> Culto de Doutrina
+                        <span class="badge bg-primary rounded-pill">Pr. Cosme</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="acoes" class="py-5">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <h2 class="display-5">Ações Sociais</h2>
+            <a href="#eventos" class="btn btn-outline-secondary">Ver Próximos Eventos</a>
+        </div>
+
+        {% for action in actions %}
+            <div class="card mb-5 border-0 shadow-sm">
+                <div class="row g-0 align-items-center">
+                    <div class="col-md-5">
+                        {% if action.cover %}
+                            <img src="{{ action.cover.url }}" class="img-fluid rounded-start h-100" alt="{{ action.title }}">
+                        {% else %}
+                            <img src="{% static 'main/img/placeholder_action.jpg' %}" class="img-fluid rounded-start h-100" alt="capa padrão">
+                        {% endif %}
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body p-4">
+                            <h5 class="card-title text-primary">{{ action.title }}</h5>
+                            <p class="card-text">{{ action.short_story|truncatechars:300 }}</p>
+                            
+                            <p class="mt-3">
+                                <a href="{% url 'main:action_detail' action.pk %}" class="btn btn-sm btn-outline-primary">Ver Detalhes e Fotos</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="alert alert-info text-center">Nenhuma ação social cadastrada ainda.</div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="eventos" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="display-5 mb-4">Próximos Eventos</h2>
+        <div class="row">
+            {% for event in events %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card shadow-sm h-100 border-0">
+                    {% if event.banner %}
+                        <img src="{{ event.banner.url }}" class="card-img-top" alt="{{ event.title }}" style="height: 200px; object-fit: cover;">
+                    {% endif %}
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-primary">{{ event.title }}</h5>
+                        <p class="small text-muted mb-2">
+                            <i class="bi bi-calendar-event"></i> {{ event.date|date:"d/m/Y" }}
+                        </p>
+                        <p class="small text-muted mb-2">
+                            <i class="bi bi-clock"></i> {{ event.date|date:"H:i" }}
+                        </p>
+                        {% if event.location %}
+                        <p class="small text-muted mb-2">
+                            <i class="bi bi-geo-alt"></i> {{ event.location }}
+                        </p>
+                        {% endif %}
+                        <p class="card-text">{{ event.description|truncatechars:100 }}</p>
+                        
+                        <div class="mt-auto">
+                            <a href="{% url 'main:event_detail' event.pk %}" 
+                            class="btn btn-outline-primary w-100">
+                                <i class="bi bi-info-circle"></i> Ver Detalhes
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+                <div class="col-12"><div class="alert alert-info text-center">Nenhum evento futuro cadastrado.</div></div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section id="contato" class="py-5 bg-dark text-white">
+    <div class="container">
+        <h2 class="display-5 mb-4">Fale Conosco</h2>
+        <div class="row mb-4">
+            <div class="col-12">
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if "contato" in message.tags or not message.tags %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h5 class="text-secondary mb-3 fw-bold">Envie uma Mensagem</h5>
+                <form method="post" class="needs-validation p-4 border rounded shadow-sm bg-white" novalidate>
+                    {% csrf_token %}
+                    
+                    {% for field in contact_form %}
+                    <div class="mb-3">
+                        <label for="{{ field.id_for_label }}" class="form-label fw-normal text-dark">
+                            {{ field.label }}
+                            {% if field.field.required %}<span class="text-danger">*</span>{% endif %}
+                        </label>
+
+                        {% if field.field.widget.input_type == 'textarea' %}
+                            <textarea 
+                                name="{{ field.name }}" 
+                                id="{{ field.id_for_label }}" 
+                                class="form-control {% if field.errors %}is-invalid{% endif %}"
+                                rows="4" 
+                                placeholder="{{ field.field.widget.attrs.placeholder|default:'' }}"
+                                {% if field.field.required %}required{% endif %}>{{ field.value|default:'' }}</textarea>
+                        {% else %}
+                            <input 
+                                type="{{ field.field.widget.input_type }}" 
+                                name="{{ field.name }}" 
+                                id="{{ field.id_for_label }}" 
+                                class="form-control {% if field.errors %}is-invalid{% endif %}"
+                                value="{{ field.value|default:'' }}"
+                                placeholder="{{ field.field.widget.attrs.placeholder|default:'' }}"
+                                {% if field.field.required %}required{% endif %}>
+                        {% endif %}
+
+                        {% if field.help_text %}
+                            <div class="form-text text-muted small">{{ field.help_text }}</div>
+                        {% endif %}
+                        
+                        {% if field.errors %}
+                            {% for error in field.errors %}
+                                <div class="invalid-feedback d-block">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                    
+                    <button class="btn btn-primary btn-lg mt-4 w-100" type="submit">
+                         Enviar Mensagem
+                    </button>
+                </form>
+            </div>
+            <div class="col-md-6">
+              <h5 class="text-secondary">Onde Estamos</h5>
+                <p class="mb-2"><i class="bi bi-geo-alt-fill text-danger"></i> Endereço: Rua Major Belarmino P. de Melo, N°09</p>
+                <p class="mb-4"><i class="bi bi-whatsapp text-success"></i> Telefone / WhatsApp: (83) 99215-2253</p>
+              
+              <div id="mapa" class="ratio ratio-4x3 border shadow-sm">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d248.06517715232914!2d-34.958651997148976!3d-7.156764003013465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e1!3m2!1spt-BR!2sbr!4v1763732184861!5m2!1spt-BR!2sbr" 
+                  allowfullscreen 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade"
+                  class="w-100 h-100" 
+                  style="border:0;"
+                ></iframe>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

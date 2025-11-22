@@ -1,0 +1,141 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}{{ action.title }}{% endblock %}
+
+{% block content %}
+<section class="container py-5 min-height-container">  
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'main:index' %}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'main:index' %}#acoes">Ações Sociais</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ action.title|truncatechars:30 }}</li>
+                </ol>
+            </nav>
+            <hr>
+        </div>
+    </div>
+    
+    <div class="row mb-5">
+        <div class="col-lg-12">
+            <h1 class="display-4 fw-bold text-primary">{{ action.title }}</h1>
+            <p class="text-muted mb-4">
+                <i class="bi bi-calendar-event"></i> 
+                Realizada em: {{ action.date|date:"d \d\e F \d\e Y" }}
+            </p>
+
+            {% if action.cover %}
+                <img src="{{ action.cover.url }}" class="img-fluid rounded shadow-sm mb-4" alt="{{ action.title }}" style="max-height: 500px; width: 100%; object-fit: cover;">
+            {% endif %}
+
+            <div class="card border-0 shadow-sm p-4 mb-4">
+                <div class="card-body">
+                    <h5 class="card-title text-primary mb-3">
+                        <i class="bi bi-heart"></i> Sobre Esta Ação
+                    </h5>
+                    <p class="lead">{{ action.short_story }}</p>
+                </div>
+            </div>
+            
+            {% if action.long_story %}
+            <div class="card border-0 shadow-sm p-4 mb-4">
+                <div class="card-body">
+                    <h3 class="card-title text-primary mb-3">
+                        <i class="bi bi-journal-text"></i> Detalhes da Ação
+                    </h3>
+                    <div class="action-content">
+                        {{ action.long_story|linebreaks }}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {# SEÇÃO DE FOTOS RELACIONADAS #}
+    {% with action.photos.all as photos %}
+        {% if photos %}
+        <div class="row mb-5">
+            <div class="col-12">
+                <hr class="my-5">
+                <h3 class="fw-bold mb-4 text-primary">
+                    <i class="bi bi-images"></i> Galeria de Fotos ({{ photos.count }})
+                </h3>
+                
+                <div class="row g-4">
+                    {% for photo in photos %}
+                    <div class="col-md-4 col-lg-3">
+                        <div class="card h-100 shadow-sm border-0">
+                            <img src="{{ photo.image.url }}" 
+                                 class="card-img-top" 
+                                 alt="{{ photo.caption }}" 
+                                 style="height: 200px; object-fit: cover;"
+                                 data-bs-toggle="modal" 
+                                 data-bs-target="#photoModal{{ forloop.counter }}"
+                                 style="cursor: pointer;">
+                            
+                            {% if photo.caption %}
+                            <div class="card-body p-3">
+                                <p class="card-text small text-muted text-center mb-0">{{ photo.caption }}</p>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- Modal para visualizar imagem em tamanho maior -->
+                    <div class="modal fade" id="photoModal{{ forloop.counter }}" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">{{ action.title }}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <img src="{{ photo.image.url }}" class="img-fluid" alt="{{ photo.caption }}">
+                                    {% if photo.caption %}
+                                    <p class="mt-3 text-muted">{{ photo.caption }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endwith %}
+
+    <div class="text-center mt-5 pt-4 border-top">
+        <a href="{% url 'main:index' %}#acoes" class="btn btn-outline-primary btn-lg">
+            <i class="bi bi-arrow-left"></i> Voltar para Ações Sociais
+        </a>
+        
+        <!-- Botão para compartilhar -->
+        <button class="btn btn-outline-success btn-lg ms-2" onclick="shareAction()">
+            <i class="bi bi-share"></i> Compartilhar
+        </button>
+    </div>
+</section>
+
+<!-- Script para compartilhar -->
+<script>
+function shareAction() {
+    if (navigator.share) {
+        navigator.share({
+            title: '{{ action.title }}',
+            text: '{{ action.short_story|truncatechars:100 }}',
+            url: window.location.href
+        })
+        .then(() => console.log('Compartilhado com sucesso'))
+        .catch((error) => console.log('Erro ao compartilhar:', error));
+    } else {
+        // Fallback para copiar link
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link copiado para a área de transferência!');
+    }
+}
+</script>
+{% endblock content %}

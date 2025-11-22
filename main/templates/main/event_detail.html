@@ -1,0 +1,113 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}{{ event.title }}{% endblock %}
+
+{% block content %}
+<section class="container py-5 mt-5">
+    <div class="row">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'main:index' %}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'main:index' %}#eventos">Eventos</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ event.title|truncatechars:30 }}</li>
+                </ol>
+            </nav>
+            <hr>
+        </div>
+    </div>
+    
+    <div class="row mb-4">
+        <div class="col-lg-8">
+            <h1 class="display-4 fw-bold text-primary">{{ event.title }}</h1>
+            <p class="text-muted mb-3">
+                <i class="bi bi-calendar-event"></i> 
+                {{ event.date|date:"d \d\e F \d\e Y" }}
+                <i class="bi bi-clock ms-3"></i>
+                {{ event.date|date:"H:i" }}
+            </p>
+
+            {% if event.location %}
+            <p class="text-muted mb-4">
+                <i class="bi bi-geo-alt"></i> 
+                <strong>Local:</strong> {{ event.location }}
+            </p>
+            {% endif %}
+        </div>
+        
+        <div class="col-lg-4">
+            <!-- CARD DE CONFIRMAÇÃO DE PRESENÇA -->
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="bi bi-check-circle"></i> Confirmar Presença</h5>
+                </div>
+                <div class="card-body text-center">
+                    {% if event.whatsapp_link %}
+                        <a href="{{ event.whatsapp_link }}" 
+                           class="btn btn-success btn-lg w-100 mb-2" 
+                           target="_blank">
+                            <i class="bi bi-whatsapp"></i> Confirmar via WhatsApp
+                        </a>
+                        <small class="text-muted">Será aberto o WhatsApp para confirmação</small>
+                    {% else %}
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle"></i>
+                            Entre em contato para confirmar presença
+                        </div>
+                        <a href="{% url 'main:index' %}#contato" class="btn btn-outline-primary w-100">
+                            <i class="bi bi-envelope"></i> Entrar em Contato
+                        </a>
+                    {% endif %}
+                    <div class="mt-3 pt-3 border-top">
+                        <small class="text-muted">
+                            <i class="bi bi-people"></i> 
+                            Participe deste evento abençoado!
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if event.banner %}
+    <div class="row mb-4">
+        <div class="col-12">
+            <img src="{{ event.banner.url }}" class="img-fluid rounded shadow-sm w-100" alt="{{ event.title }}" style="max-height: 500px; object-fit: cover;">
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm p-4">
+                <div class="card-body">
+                    <h3 class="card-title text-primary mb-3">
+                        <i class="bi bi-info-circle"></i> Sobre o Evento
+                    </h3>
+                    <div class="event-content">
+                        {{ event.description|linebreaks }}
+                    </div>
+                    
+                    {% if event.full_story %}
+                    <div class="mt-4">
+                        <h4 class="text-primary">Detalhes</h4>
+                        {{ event.full_story|linebreaks }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="text-center">
+                <a href="{% url 'main:index' %}#eventos" class="btn btn-outline-primary btn-lg">
+                    <i class="bi bi-arrow-left"></i> Voltar para Todos os Eventos
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

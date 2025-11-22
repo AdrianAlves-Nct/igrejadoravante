@@ -1,0 +1,486 @@
+/* main/css/style.css - Estilo Completo e Aprimorado para o Site */
+
+/* ========================================= */
+/* 1. VARIÁVEIS CSS E PALETA DE CORES */
+/* ========================================= */
+:root {
+    /* Cores Institucionais - Azuis */
+    --primary-color: #3b5998;     /* Azul Escuro Principal */
+    --secondary-color: #5d90df;    /* Azul Médio para Destaque/Hover */
+    --tertiary-color: #9199a3;    /* Azul Muito Claro (para fundos suaves) */
+
+    /* Cor de Realce/Ação - Amarelo/Ouro */
+    --accent-color: #f7b731;      /* Amarelo vibrante para CTA */
+    --accent-color-hover: #e5a720; /* Amarelo mais escuro no hover */
+
+    /* Cores Neutras - Fundo e Texto */
+    --background-light: #ffffff;  /* Fundo muito claro (Bootstrap bg-light) */
+    --background-white: #ffffff;  /* Fundo branco puro */
+    --background-dark: #212529;   /* Fundo escuro (Bootstrap bg-dark) */
+    --text-color-dark: #212529;      /* Texto escuro padrão para fundos claros */
+    --text-color-light: #ffffff;  /* Texto claro padrão para fundos escuros */
+    --text-color-muted: #ffffff;  /* Texto cinza sutil (Bootstrap text-muted) */
+    --border-color: #dee2e6;      /* Cor de borda suave */
+}
+
+/* ========================================= */
+/* 2. ESTILOS GLOBAIS E TIPOGRAFIA */
+/* ========================================= */
+body {
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-color-dark); /* Padrão de texto escuro */
+    line-height: 1.6; /* Espaçamento de linha aprimorado */
+    background-color: var(--background-light); /* Fundo padrão do site */
+    display: flex;
+    flex-direction: column;
+}
+html, body {
+    height: 100%;
+}
+main {
+    flex: 1 0 auto;
+}
+
+/* Footer fixa no fundo */
+footer {
+    flex-shrink: 0;
+}
+
+/* Ajuste específico para páginas com pouco conteúdo */
+.min-height-container {
+    min-height: calc(100vh - 200px); /* Ajuste conforme necessidade */
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700; /* Títulos mais fortes */
+    color: var(--primary-color); /* Títulos em azul primário */
+}
+
+.display-4, .display-5 {
+    font-weight: 800; /* Títulos em destaque ainda mais fortes */
+    color: var(--primary-color);
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+.lead {
+    font-size: 1.15rem;
+    font-weight: 300;
+}
+
+/* Links em geral */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* ========================================= */
+/* 3. LAYOUT E SEÇÕES */
+/* ========================================= */
+.container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Seções com padding padrão */
+section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+/* Seções com fundo claro */
+section.bg-light {
+    background-color: var(--background-light) !important;
+}
+
+/* Seções com fundo escuro */
+section.bg-dark {
+    background-color: var(--background-dark) !important;
+    color: var(--text-color-light); /* Texto claro nessas seções */
+}
+section.bg-dark h2,
+section.bg-dark h3,
+section.bg-dark h4,
+section.bg-dark h5,
+section.bg-dark p,
+section.bg-dark .lead,
+section.bg-dark .text-muted {
+    color: var(--text-color-light) !important; /* Força texto claro */
+}
+
+/* ========================================= */
+/* 4. COMPONENTES: HEADER E NAVBAR */
+/* ========================================= */
+
+/* Header principal (Jumbotron) */
+header.bg-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--text-color-light);
+    border-bottom: 8px solid var(--accent-color); /* Linha de destaque mais proeminente */
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+header.bg-primary .display-4 {
+    color: var(--text-color-light); /* Garante que o H1 do header seja claro */
+}
+
+
+/* Navbar */
+.navbar {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.6rem;
+    color: var(--primary-color) !important;
+}
+.navbar-nav .nav-link {
+    color: var(--text-color-dark);
+    font-weight: 500;
+    margin-right: 1.5rem;
+    transition: color 0.3s ease;
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--primary-color);
+}
+
+/* ========================================= */
+/* 5. COMPONENTES: BOTÕES */
+/* ========================================= */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--text-color-light); /* Texto claro nos botões primários */
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transform: translateY(-2px); /* Efeito suave ao passar o mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-secondary {
+    color: var(--text-color-dark);
+    border-color: var(--border-color);
+}
+.btn-outline-secondary:hover {
+    background-color: var(--tertiary-color);
+    color: var(--text-color-dark);
+    border-color: var(--secondary-color);
+}
+
+/* Botão de Destaque/Ação (Amarelo) */
+.btn-accent, .btn-success {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--text-color-dark); /* Texto escuro para contraste no amarelo */
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+.btn-accent:hover, .btn-success:hover {
+    background-color: var(--accent-color-hover);
+    border-color: var(--accent-color-hover);
+    color: var(--text-color-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================= */
+/* 6. COMPONENTES: CARDS (Ações e Eventos) */
+/* ========================================= */
+.card {
+    border: none; /* Remove a borda padrão do Bootstrap */
+    border-radius: 1rem; /* Cantos bem arredondados */
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* Sombra suave e perceptível */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--background-white);
+}
+.card:hover {
+    transform: translateY(-5px); /* Efeito de elevação ao passar o mouse */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra mais intensa */
+}
+
+/* Imagens dentro do Card (cover) */
+.card img {
+    object-fit: cover;
+    height: 100%; 
+    max-height: 300px; /* Um pouco mais alto para impacto */
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+.card-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+}
+.card-text {
+    color: var(--text-color-dark);
+}
+
+/* Estilo para listas dentro de seções (ex: Agenda Semanal) */
+.list-group-item {
+    background-color: var(--background-white);
+    border-color: var(--border-color);
+    padding: 1rem 1.5rem;
+    font-size: 1.05rem;
+}
+.list-group-item .badge {
+    background-color: var(--secondary-color) !important; /* Badge com cor secundária */
+    color: var(--text-color-light);
+}
+
+/* ========================================= */
+/* 7. COMPONENTES: FORMULÁRIO DE CONTATO */
+/* ========================================= */
+
+/* Contêiner do Formulário */
+form.needs-validation {
+    background-color: var(--background-white) !important; /* Fundo branco para contraste */
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    padding: 2.5rem; /* Padding generoso */
+}
+
+/* Rótulos dos Campos */
+.form-label {
+    color: var(--text-color-dark);
+    font-weight: 500;
+    margin-bottom: 0.5rem; /* Mais espaçamento */
+    display: block; /* Garante que o label ocupe sua própria linha */
+}
+
+/* Campos de Entrada (Input, Textarea) */
+.form-control {
+    background-color: var(--text-color-muted);
+    color: var(--text-color-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 0.85rem 1.25rem; /* Aumenta o padding para inputs mais "altos" */
+    transition: all 0.3s ease-in-out;
+    font-size: 1.05rem;
+}
+
+.form-control:hover {
+    border-color: var(--secondary-color);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(59, 89, 152, 0.25);
+    background-color: var(--background-white);
+    color: var(--text-color-dark);
+}
+
+/* Texto de Ajuda */
+.form-text {
+    color: var(--text-color-muted) !important;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+/* Mensagens de Erro */
+.invalid-feedback {
+    color: #dc3545 !important; /* Vermelho padrão do Bootstrap para erros */
+    font-size: 0.9rem;
+}
+
+/* ========================================= */
+/* 8. COMPONENTES: FOOTER */
+/* ========================================= */
+footer.bg-dark {
+    background-color: var(--background-dark) !important;
+    color: var(--text-color-light);
+    padding: 2rem 0;
+    font-size: 0.9rem;
+}
+footer.bg-dark a {
+    color: var(--text-color-light);
+}
+footer.bg-dark a:hover {
+    color: var(--secondary-color);
+}
+
+/* ========================================= */
+/* HEADER COM BACKGROUND IMAGE */
+/* ========================================= */
+header.bg-primary {
+    position: relative;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    min-height: 80vh; /* Altura generosa */
+    display: flex;
+    align-items: center;
+}
+
+/* Garante que a imagem cubra toda a área */
+.object-fit-cover {
+    object-fit: cover;
+}
+
+/* Altura mínima para o conteúdo */
+.min-vh-50 {
+    min-height: 50vh;
+}
+
+/* Camada de conteúdo acima da imagem */
+.position-relative.z-1 {
+    z-index: 1;
+}
+
+/* Ajuste de opacidade para melhor legibilidade */
+header.bg-primary .position-absolute.bg-dark {
+    background-color: rgba(0, 0, 0, 0.5) !important; /* Overlay mais escuro */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    header.bg-primary {
+        min-height: 60vh;
+        text-align: center;
+    }
+    
+    .display-4 {
+        font-size: 2.5rem;
+    }
+}
+
+/* ========================================= */
+/* 9. RESPONSIVIDADE (Ajustes para Mobile) */
+/* ========================================= */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    .lead { font-size: 1rem; }
+
+    section {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .navbar-brand { font-size: 1.4rem; }
+    .navbar-nav .nav-link { margin-right: 0; padding: 0.5rem 0; }
+
+    .btn-primary, .btn-accent, .btn-success {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .card img { max-height: 200px; } /* Ajusta altura da imagem em mobile */
+    .card-body { padding: 1rem; }
+
+    form.needs-validation {
+        padding: 1.5rem; /* Menor padding no formulário em mobile */
+    }
+
+    .list-group-item {
+        font-size: 0.95rem;
+        padding: 0.8rem 1rem;
+    }
+
+    footer.bg-dark .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    footer.bg-dark p, footer.bg-dark address {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* ========================================= */
+/* BACKGROUND IMAGES PARA DIFERENTES SEÇÕES */
+/* ========================================= */
+
+
+/* SEÇÃO SOBRE - COM BACKGROUND */
+section#sobre {
+    background: 
+        linear-gradient(rgba(248, 249, 250, 0.9), rgba(248, 249, 250, 0.95)),
+        url('../img/sobre-bg.jpg') center/cover;
+    position: relative;
+}
+
+/* SEÇÃO AÇÕES SOCIAIS - COM BACKGROUND */
+section#acoes {
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.95)),
+        url('../img/acoes-bg2.jpg') center/cover;
+    position: relative;
+}
+
+/* SEÇÃO EVENTOS - COM BACKGROUND */
+section#eventos.bg-light {
+    background: 
+        linear-gradient(rgba(248, 249, 250, 0.9), rgba(248, 249, 250, 0.95)),
+        url('../img/contato-bg3.jpg') center/cover !important;
+    position: relative;
+}
+
+/* SEÇÃO CONTATO - COM BACKGROUND ESCURO */
+section#contato.bg-dark {
+    background: 
+        linear-gradient(rgba(33, 37, 41, 0.9), rgba(33, 37, 41, 0.95)),
+        url('../img/eventos-bg3.jpg') center/cover !important;
+    position: relative;
+}
+
+/* ========================================= */
+/* ESTILOS BÁSICOS PARA BACKGROUNDS */
+/* ========================================= */
+
+/* Garantir que o conteúdo fique acima do background */
+section .container {
+    position: relative;
+    z-index: 1;
+}
+
+
+
+
+@media (max-width: 768px) {
+    /* Ajuste de altura no mobile */
+    header.bg-primary {
+        min-height: 60vh;
+    }
+    
+    /* Backgrounds mais simples em mobile se necessário */
+    section#sobre,
+    section#acoes,
+    section#eventos.bg-light,
+    section#contato.bg-dark {
+        background-attachment: scroll;
+    }
+}
+
+/* ========================================= */
+/* ANIMAÇÃO BÁSICA DE ENTRADA */
+/* ========================================= */
+
+section {
+    animation: fadeInBackground 1s ease-in-out;
+}
+
+@keyframes fadeInBackground {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

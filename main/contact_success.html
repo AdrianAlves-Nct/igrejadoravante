@@ -1,0 +1,18 @@
+{% extends "main/base.html" %}
+
+{% block title %}Mensagem Enviada!{% endblock %}
+
+{% block content %}
+<section class="py-5 text-center" style="min-height: 70vh; display: flex; align-items: center; justify-content: center;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <i class="fas fa-check-circle text-success mb-4" style="font-size: 4rem;"></i>
+                <h2 class="mb-4 display-5 fw-bold">Obrigado! Sua Mensagem Foi Enviada.</h2>
+                <p class="lead text-muted">Agradecemos o seu contato. Nossa equipe analisará sua mensagem e responderá o mais breve possível.</p>
+                <a href="{% url 'main:index' %}" class="btn btn-primary btn-lg mt-4">Voltar para a Página Principal</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "main/base.html" %}
+{% block title %}Erro no Envio{% endblock %}
+{% block content %}
+<div class="container py-5 text-center">
+    <h3 class="text-danger mb-4"><i class="bi bi-x-circle-fill"></i> Erro ao Enviar Mensagem</h3>
+    <p class="lead">Houve um problema com o seu envio. Por favor, tente novamente.</p>
+    <p class="text-muted">Detalhe: {{ error }}</p>
+    <a href="{% url 'main:index' %}" class="btn btn-primary mt-3">Voltar à Página Inicial</a>
+</div>
+{% endblock %}
