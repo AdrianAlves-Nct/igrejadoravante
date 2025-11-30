@@ -1,4 +1,4 @@
-# Site Assembleia do Ravante
+# Site Assembleia Doravante
 
 Site institucional desenvolvido para modernizar a comunicação da comunidade religiosa.
 
@@ -13,6 +13,7 @@ Site institucional desenvolvido para modernizar a comunicação da comunidade re
 - Django + PythonAnywhere
 - HTML/CSS/JavaScript
 - Domínio personalizado + SSL
+  
 ## Estrutura 
 igrejadoravante/
 ├── main/
