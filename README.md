@@ -15,13 +15,22 @@ Site institucional desenvolvido para modernizar a comunicação da comunidade re
 - Domínio personalizado + SSL
   
 ## Estrutura 
-igrejadoravante/
-├── main/
+igrejadoravante/ 
+
+├── main/  
+│
 │ ├── models.py # Modelos de dados
+│
 │ ├── views.py # Lógica da aplicação
+│
 │ ├── forms.py # Formulários
+│
 │ └── templates/ # Templates HTML
+│
 ├── churchsite/
+│
 │ └── settings.py # Configurações
+│
 └── manage.py
+
 > Projeto acadêmico com aplicação prática na comunidade
